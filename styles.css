@@ -183,3 +183,22 @@ footer a:hover {
 .back-home:hover {
     text-decoration: underline;
 }
+
+.faq-item {
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.faq-item:last-of-type {
+    border-bottom: none;
+}
+
+.faq-item h3 {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.faq-item p:last-child {
+    margin-bottom: 0;
+}
