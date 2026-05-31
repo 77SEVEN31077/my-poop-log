@@ -3,126 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free, private poop log tracker. Record bowel movement times locally in your browser — no account required.">
     <title>Poop Log Tracker</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-            background: #f5f5f5; /* 米白色背景 */
-            color: #333;
-        }
-        h1 {
-            text-align: center;
-            font-size: 48px; /* 超大標題 */  
-            font-weight: bold;
-            color: #000;
-            margin-bottom: 40px;
-        }
-        .input-area {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        select {
-            padding: 10px;
-            font-size: 18px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin: 0 5px;
-        }
-        button {
-            padding: 12px 24px;
-            font-size: 18px;
-            background: #8d6e63;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-        button:hover {
-            background: #6d4c41;
-        }
-        button.clear {
-            background: #e74c3c;
-            margin-left: 20px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        th, td {
-            padding: 12px;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background: #8d6e63;
-            color: white;
-        }
-        tr:nth-child(even) {
-            background: #f2f2f2;
-        }
-        .no-data {
-            text-align: center;
-            padding: 40px;
-            color: #999;
-            font-size: 18px;
-        }
-        .section {
-            margin-top: 40px;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            font-size: 14px;
-            color: #666;
-        }
-        footer a {
-            margin: 0 10px;
-            color: #8d6e63;
-            text-decoration: none;  
-        }
-        .disclaimer {
-            font-size: 14px;
-            color: #666;
-            text-align: center;
-            margin: 20px 0;
-        }
-        .ad-space {
-            text-align: center;
-            margin: 40px 0;
-            min-height: 100px;
-            background: #f0f0f0;
-            border: 1px dashed #ccc;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-style: italic;
-        }
-    </style>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2488269635860224" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/styles.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2488269635860224" crossorigin="anonymous"></script>
 </head>
 <body>
+    <nav class="site-nav">
+        <a href="/">Home</a> |
+        <a href="/about/">About</a> |
+        <a href="/privacy/">Privacy</a> |
+        <a href="/terms/">Terms</a> |
+        <a href="/contact/">Contact</a>
+    </nav>
+
     <h1>💩 Poop Log Tracker</h1>
 
-    <div class="ad-space">Advertisement space</div>
+    <div class="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-2488269635860224"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+    </div>
 
     <div class="input-area">
         <strong>Last bowel movement time:</strong><br><br>
-        <select id="hour"></select>  
+        <select id="hour"></select>
         <select id="minute"></select>
         <select id="ampm">
             <option value="AM">AM</option>
@@ -137,44 +44,40 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>Date & Time</th>
+                <th>Date &amp; Time</th>
                 <th>Interval from Previous</th>
             </tr>
         </thead>
         <tbody id="tableBody"></tbody>
     </table>
 
-    <div class="ad-space">Advertisement space</div>
+    <div class="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-2488269635860224"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+    </div>
 
     <div class="disclaimer">
-        <strong>Medical Disclaimer:</strong> This tool is for personal tracking only and is not medical advice. Please consult a healthcare professional for any health concerns.
+        <strong>Medical Disclaimer:</strong> This tool is for personal tracking only and is not medical advice.
+        Please consult a healthcare professional for any health concerns.
+        <a href="/terms/#disclaimer">Read full disclaimer</a>
     </div>
 
     <footer>
-        <a href="#about">About</a> | <a href="#privacy">Privacy Policy</a> | <a href="#disclaimer">Medical Disclaimer</a>
+        <a href="/about/">About</a> |
+        <a href="/privacy/">Privacy Policy</a> |
+        <a href="/terms/">Terms of Use</a> |
+        <a href="/contact/">Contact</a>
     </footer>
 
-    <div id="about" class="section">
-        <h2>About Poop Log Tracker</h2>
-        <p>This is a free, completely private web tool designed to help you track your bowel movement frequency. All data is stored only in your browser's local storage — nothing is sent to any server.</p>
-    </div>
-
-    <div id="privacy" class="section">
-        <h2>Privacy Policy</h2>
-        <p>We do not collect, store, or share any personal data. All records are saved locally in your browser using localStorage and are never transmitted anywhere.</p>
-        <p>No cookies, no tracking, no analytics.</p>
-        <p>Last updated: December 2025</p>
-    </div>
-
-    <div id="disclaimer" class="section">
-        <h2>Medical Disclaimer</h2>
-        <p>This tool is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions regarding a medical condition.</p>
-    </div>
-
     <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        (adsbygoogle = window.adsbygoogle || []).push({});
+
         const STORAGE_KEY = 'poopRecords';
 
-        // 填小時下拉
         const hourSelect = document.getElementById('hour');
         for (let h = 1; h <= 12; h++) {
             const opt = document.createElement('option');
@@ -183,7 +86,6 @@
             hourSelect.appendChild(opt);
         }
 
-        // 填分鐘下拉
         const minuteSelect = document.getElementById('minute');
         for (let m = 0; m < 60; m++) {
             const opt = document.createElement('option');
