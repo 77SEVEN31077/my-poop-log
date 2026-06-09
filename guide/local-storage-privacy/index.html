@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Why Poop Log Tracker stores bowel movement records in browser localStorage instead of a cloud database — benefits, limits, and backup tips.">
+    <link rel="canonical" href="https://mypooplog.com/guide/local-storage-privacy/">
+    <title>Why This Poop Log Stores Data Locally — Poop Log Tracker</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2488269635860224" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="site-nav">
+        <a href="/">Home</a> |
+        <a href="/about/">About</a> |
+        <a href="/faq/">FAQ</a> |
+        <a href="/guide/">Learn</a> |
+        <a href="/privacy/">Privacy</a> |
+        <a href="/terms/">Terms</a> |
+        <a href="/contact/">Contact</a>
+    </nav>
+
+    <a class="back-home" href="/guide/">← Back to Learn</a>
+
+    <div class="page-content">
+        <h1>Why This Poop Log Stores Data Locally</h1>
+        <p class="article-meta">General information · Privacy-focused design</p>
+
+        <p>Many health-adjacent apps default to cloud accounts. That model enables sync across devices, but it also means your data transits servers, appears in company databases, and may be exposed if credentials leak or policies change. Poop Log Tracker deliberately chooses a different path: storing bowel movement timestamps in your browser's localStorage so the website operator never receives your log entries.</p>
+
+        <h2>What is localStorage?</h2>
+        <p>localStorage is a built-in browser feature that lets websites save small amounts of text data on your device. The data persists between visits until you or your browser removes it. For Poop Log Tracker, each log entry is saved as structured text associated with this site's domain.</p>
+        <p>Unlike cookies used for advertising, localStorage here holds your functional log data. Advertising cookies — described in our <a href="/privacy/">Privacy Policy</a> — are separate technologies managed by Google AdSense and its partners.</p>
+
+        <h2>Privacy benefits</h2>
+        <p><strong>No account required:</strong> You never provide an email or password to use the tool, reducing identity linkage.</p>
+        <p><strong>No server upload of logs:</strong> We do not operate a backend database that stores your bowel movement history. When you click Log, the write happens inside your browser, not on our servers.</p>
+        <p><strong>Reduced third-party data sharing for logs:</strong> Your entries are not sold, profiled, or aggregated by us because we never collect them centrally.</p>
+        <p>These benefits appeal to users who want minimal digital footprint for sensitive personal habits.</p>
+
+        <h2>Trade-offs you should understand</h2>
+        <p><strong>Device-bound data:</strong> Your history does not automatically follow you to a new phone or laptop. Each browser profile maintains its own storage.</p>
+        <p><strong>Deletion risk:</strong> Clearing browsing data, uninstalling the browser, using aggressive privacy cleaners, or resetting a device can erase logs permanently.</p>
+        <p><strong>No cloud recovery:</strong> If data is deleted locally, we cannot restore it because we never had a copy.</p>
+        <p><strong>Shared devices:</strong> Anyone with access to your unlocked browser profile could open the page and see entries. Use personal devices or separate OS user accounts when possible.</p>
+
+        <h2>Manual backup strategies</h2>
+        <p>This version does not include a built-in export feature. Because records are stored locally in your browser, you can manually back up your records by taking a screenshot or copying the table before clearing browser data. Periodic screenshots before major OS updates are a simple safeguard.</p>
+        <p>If you need long-term archival with search and tagging, a dedicated medical records system or clinician-directed tool may be more appropriate than a lightweight browser log.</p>
+
+        <h2>Advertising vs. functional storage</h2>
+        <p>Even though your log stays local, this website may display Google AdSense advertisements. Ad networks may use cookies or similar technologies for delivery and measurement, as explained in our Privacy Policy. That advertising data path is separate from your localStorage log entries.</p>
+        <p>You can review ad personalization controls through Google Ads Settings and industry opt-out pages linked from our privacy documentation.</p>
+
+        <h2>Security in perspective</h2>
+        <p>localStorage is not encrypted like a dedicated password vault. It is appropriate for low-sensitivity timestamp notes on a trusted personal device, but not for storing highly sensitive identifiers or clinical documents. Treat the log as convenient personal notes, not a certified medical record system.</p>
+
+        <div class="medical-note">
+            <strong>Note:</strong> Privacy-friendly storage does not make this tool a medical service. It remains a personal awareness utility. See our <a href="/terms/#disclaimer">Terms and medical disclaimer</a> for scope limitations.
+        </div>
+
+        <div class="related-links">
+            <h3>Related reading</h3>
+            <ul>
+                <li><a href="/privacy/">Privacy Policy</a></li>
+                <li><a href="/guide/how-to-track-bowel-movements/">How to Track Bowel Movements Privately</a></li>
+                <li><a href="/faq/">FAQ — data storage questions</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-2488269635860224"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+    </div>
+
+    <footer>
+        <a href="/about/">About</a> |
+        <a href="/faq/">FAQ</a> |
+        <a href="/guide/">Learn</a> |
+        <a href="/privacy/">Privacy Policy</a> |
+        <a href="/terms/">Terms of Use</a> |
+        <a href="/contact/">Contact</a>
+    </footer>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</body>
+</html>

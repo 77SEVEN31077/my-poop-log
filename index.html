@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free, private poop log tracker. Record bowel movement times locally in your browser — no account required.">
-    <title>Poop Log Tracker</title>
+    <meta name="description" content="Poop Log Tracker helps you record bowel movement times privately in your browser. Learn why tracking matters, how intervals work, and when to seek medical advice.">
+    <link rel="canonical" href="https://mypooplog.com/">
+    <title>Poop Log Tracker — Private Bowel Movement Log</title>
     <link rel="stylesheet" href="/styles.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2488269635860224" crossorigin="anonymous"></script>
 </head>
@@ -13,6 +14,7 @@
         <a href="/">Home</a> |
         <a href="/about/">About</a> |
         <a href="/faq/">FAQ</a> |
+        <a href="/guide/">Learn</a> |
         <a href="/privacy/">Privacy</a> |
         <a href="/terms/">Terms</a> |
         <a href="/contact/">Contact</a>
@@ -20,6 +22,88 @@
 
     <h1>💩 Poop Log Tracker</h1>
 
+    <section class="tool-section" aria-label="Bowel movement logging tool">
+        <div class="input-area">
+            <strong>Last bowel movement time:</strong><br><br>
+            <select id="hour"></select>
+            <select id="minute"></select>
+            <select id="ampm">
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+            </select>
+            <br><br>
+            <button onclick="addRecord()">Log</button>
+            <button class="clear" onclick="clearAll()">Clear All Records</button>
+        </div>
+
+        <table id="recordTable">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Date &amp; Time</th>
+                    <th>Interval from Previous</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </section>
+
+    <section class="content-section">
+        <h2>What is Poop Log Tracker?</h2>
+        <p>Poop Log Tracker is a simple browser-based tool for recording the time of your bowel movements and seeing how much time passes between entries. It is designed for people who want a lightweight way to notice changes in bowel rhythm without creating an account or uploading private health-related notes to a server.</p>
+        <p>Unlike apps that require registration, cloud sync, or subscription plans, this website keeps the experience minimal: open the page, log a time, and review your history in a plain table. The goal is practical awareness, not clinical diagnosis. You stay in control of what you record and where that information lives.</p>
+        <p>If you are looking for a no-friction way to build a personal baseline — especially during diet changes, travel, illness recovery, or medication adjustments — a simple timestamp log can be more useful than trying to remember dates from memory alone.</p>
+    </section>
+
+    <section class="content-section">
+        <h2>Why Track Bowel Movement Frequency?</h2>
+        <p>Bowel habits vary widely from person to person. Some people have bowel movements several times a day; others may go only a few times per week and still feel healthy. What matters most is understanding <em>your</em> typical pattern and recognizing when that pattern shifts without an obvious explanation.</p>
+        <p>Memory alone is unreliable for tracking timing. People often underestimate how many days passed since the last movement, or forget whether a recent change started before or after a trip, a new medication, or a dietary shift. A written log removes guesswork and makes conversations with healthcare providers more concrete when you can describe duration and frequency with dates.</p>
+        <p>Tracking time intervals can also help you correlate habits with context. For example, you might notice that long flights, reduced water intake, disrupted sleep, or high-stress weeks tend to coincide with longer gaps between entries. None of this replaces medical evaluation, but it can support better self-awareness and more informed questions during appointments.</p>
+        <p>Common reasons people keep a bowel movement log include monitoring regularity after increasing dietary fiber, watching patterns during a new exercise routine, noting effects of supplements such as probiotics, or simply building a personal reference after a doctor asks about recent habits.</p>
+    </section>
+
+    <section class="content-section">
+        <h2>How to Use This Tool</h2>
+        <p>Using Poop Log Tracker takes only a few steps. Select the hour and minute of your most recent bowel movement, choose AM or PM, and click <strong>Log</strong>. The entry appears at the top of the table with the date, time, and interval since your previous record.</p>
+        <p>Each new entry is stored immediately in your browser. You do not need to press save or sync to a cloud account. If you make a mistake, you can clear all records and start again, though individual entry editing is not supported in this version — accuracy at the moment of logging is therefore important.</p>
+        <p>For the most useful history, try to log as close to the actual event as possible. If you log late in the evening for a movement that happened in the morning, the timestamp will reflect when you entered it, not necessarily when it occurred. Building a habit of logging right away produces the most reliable interval data over weeks and months.</p>
+    </section>
+
+    <section class="content-section">
+        <h2>What the Interval Column Means</h2>
+        <p>The <strong>Interval from Previous</strong> column calculates the time between the current row and the next older entry in your log. The newest record sits at the top, so the interval shows how long it had been since the prior movement you logged.</p>
+        <p>If you are reviewing your history, look for trends rather than single numbers. One long interval after a busy travel day may mean nothing on its own. A steady increase in average spacing over two or three weeks, especially with discomfort or other symptoms, is more meaningful and worth discussing with a qualified healthcare professional.</p>
+        <p>The first entry in your log always shows a dash because there is no earlier record to compare against. As you accumulate entries, the table becomes a timeline you can scan for shorter or longer gaps than usual.</p>
+    </section>
+
+    <section class="content-section">
+        <h2>Privacy-First Local Storage</h2>
+        <p>Your entries are stored only in your browser's <strong>localStorage</strong>. The site does not require an account, email address, or password. Your records are not uploaded to a database operated by this website, which means we never receive or store your log on a server.</p>
+        <p>Local storage has practical benefits for privacy-sensitive health notes, but it also comes with responsibility on your side. Data stays on the device and browser where you entered it. If you clear browser data, uninstall the browser, use private browsing modes that discard storage, or switch devices, your history will not automatically follow you.</p>
+        <p>This version does not include a built-in export feature. Because records are stored locally in your browser, you can manually back up your records by taking a screenshot or copying the table before clearing browser data. Read more in our <a href="/guide/local-storage-privacy/">guide to local storage and privacy</a> and <a href="/privacy/">Privacy Policy</a>.</p>
+    </section>
+
+    <section class="content-section">
+        <h2>When Tracking Can Be Useful</h2>
+        <p>A bowel movement log is most helpful when you want a factual timeline rather than a diagnosis. Many people use simple tracking during periods of intentional lifestyle change — for example, after increasing whole grains and vegetables, during a doctor-recommended hydration goal, or while tapering off a medication that affected digestion.</p>
+        <p>Tracking can also help you prepare for medical appointments. Instead of saying you are "often constipated," you can describe that your typical interval shifted from roughly every other day to every four or five days over the past month. Specific observations help clinicians ask better follow-up questions, even though the log itself does not tell them what is wrong.</p>
+        <p>Parents sometimes use simple logs when a pediatrician asks about a child's recent bathroom patterns, and adults managing chronic conditions may keep personal notes between specialist visits. In every case, the log supports communication; it does not replace professional judgment.</p>
+    </section>
+
+    <section class="content-section">
+        <h2>What This Tool Cannot Do</h2>
+        <p>Poop Log Tracker is for personal awareness only. It is <strong>not</strong> a medical device, diagnostic system, or emergency service. It does not analyze stool appearance, pain levels, blood, weight, hydration, or nutrition unless you record that information elsewhere.</p>
+        <p>The tool cannot tell you whether a pattern is healthy, unhealthy, or urgent. It does not send alerts when intervals exceed a threshold, and it does not connect to clinicians automatically. Any conclusions about treatment, testing, or lifestyle changes require a qualified healthcare provider who can evaluate your full history and symptoms.</p>
+        <p>Do not use this website as a substitute for professional medical advice, diagnosis, or treatment. See our <a href="/terms/#disclaimer">full medical disclaimer</a> for additional details.</p>
+    </section>
+
+    <section class="content-section">
+        <h2>When to Seek Medical Advice</h2>
+        <p>Contact a healthcare professional if you notice warning signs such as blood in stool, black tarry stools, severe or persistent abdominal pain, unexplained weight loss, ongoing constipation or diarrhea, or a sudden change in bowel habits that lasts two weeks or longer.</p>
+        <p>Even if your log looks "normal," symptoms matter more than timestamps alone. If you feel unwell, worried, or unsure, seek qualified care rather than waiting for patterns to become more extreme. Our <a href="/guide/when-to-see-a-doctor/">guide on when to talk to a doctor</a> explains common scenarios in plain language.</p>
+    </section>
+
     <div class="ad-container">
         <ins class="adsbygoogle"
              style="display:block"
@@ -28,55 +112,44 @@
              data-full-width-responsive="true"></ins>
     </div>
 
-    <div class="input-area">
-        <strong>Last bowel movement time:</strong><br><br>
-        <select id="hour"></select>
-        <select id="minute"></select>
-        <select id="ampm">
-            <option value="AM">AM</option>
-            <option value="PM">PM</option>
-        </select>
-        <br><br>
-        <button onclick="addRecord()">Log</button>
-        <button class="clear" onclick="clearAll()">Clear All Records</button>
-    </div>
-
-    <table id="recordTable">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Date &amp; Time</th>
-                <th>Interval from Previous</th>
-            </tr>
-        </thead>
-        <tbody id="tableBody"></tbody>
-    </table>
-
-    <div class="ad-container">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-2488269635860224"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-    </div>
-
-    <div class="disclaimer">
-        <strong>Medical Disclaimer:</strong> This tool is for personal tracking only and is not medical advice.
-        Please consult a healthcare professional for any health concerns.
-        <a href="/terms/#disclaimer">Read full disclaimer</a> ·
-        <a href="/faq/">Browse FAQ</a>
-    </div>
+    <section class="content-section">
+        <h2>Learn More</h2>
+        <p>Explore our informational guides for deeper context on tracking habits, privacy, and digestive health awareness.</p>
+        <div class="learn-grid">
+            <a class="learn-card" href="/guide/how-to-track-bowel-movements/">
+                <strong>How to Track Bowel Movements Privately</strong>
+                <span>Step-by-step habits for accurate, low-friction logging.</span>
+            </a>
+            <a class="learn-card" href="/guide/bowel-movement-frequency/">
+                <strong>Understanding Bowel Movement Frequency</strong>
+                <span>What typical ranges mean and how to read your own baseline.</span>
+            </a>
+            <a class="learn-card" href="/guide/constipation-tracking/">
+                <strong>Tracking Constipation Patterns</strong>
+                <span>How interval logs can clarify gradual changes over time.</span>
+            </a>
+            <a class="learn-card" href="/guide/local-storage-privacy/">
+                <strong>Why This Poop Log Stores Data Locally</strong>
+                <span>How browser storage protects privacy and what to watch for.</span>
+            </a>
+            <a class="learn-card" href="/guide/when-to-see-a-doctor/">
+                <strong>When to Talk to a Doctor About Bowel Changes</strong>
+                <span>Warning signs that deserve professional evaluation.</span>
+            </a>
+        </div>
+        <p style="margin-top: 20px;">Browse all guides on the <a href="/guide/">Learn page</a>, read the <a href="/faq/">FAQ</a>, or learn <a href="/about/">about this project</a>.</p>
+    </section>
 
     <footer>
         <a href="/about/">About</a> |
         <a href="/faq/">FAQ</a> |
+        <a href="/guide/">Learn</a> |
         <a href="/privacy/">Privacy Policy</a> |
         <a href="/terms/">Terms of Use</a> |
         <a href="/contact/">Contact</a>
     </footer>
 
     <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
         (adsbygoogle = window.adsbygoogle || []).push({});
 
         const STORAGE_KEY = 'poopRecords';
