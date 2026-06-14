@@ -5,20 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="About Poop Log Tracker — a free, private browser-based bowel movement log tool.">
     <link rel="canonical" href="https://mypooplog.com/about/">
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Poop Log Tracker">
+    <meta property="og:title" content="About — Poop Log Tracker">
+    <meta property="og:description" content="About Poop Log Tracker — a free, private browser-based bowel movement log tool.">
+    <meta property="og:url" content="https://mypooplog.com/about/">
+    <meta property="og:image" content="https://mypooplog.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About — Poop Log Tracker">
+    <meta name="twitter:description" content="About Poop Log Tracker — a free, private browser-based bowel movement log tool.">
+    <meta name="twitter:image" content="https://mypooplog.com/og-image.png">
     <title>About — Poop Log Tracker</title>
     <link rel="stylesheet" href="/styles.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2488269635860224" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="site-nav">
-        <a href="/">Home</a> |
-        <a href="/about/">About</a> |
-        <a href="/faq/">FAQ</a> |
-        <a href="/guide/">Learn</a> |
-        <a href="/privacy/">Privacy</a> |
-        <a href="/terms/">Terms</a> |
-        <a href="/contact/">Contact</a>
-    </nav>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="site-brand" href="/">Poop Log Tracker</a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+            <nav class="site-nav" id="site-nav">
+                <a href="/">Home</a>
+                <a href="/about/">About</a>
+                <a href="/faq/">FAQ</a>
+                <a href="/guide/">Learn</a>
+                <a href="/privacy/">Privacy</a>
+                <a href="/terms/">Terms</a>
+                <a href="/contact/">Contact</a>
+            </nav>
+        </div>
+    </header>
 
     <a class="back-home" href="/">← Back to Poop Log Tracker</a>
 
@@ -37,7 +59,7 @@
         <ol>
             <li>Select the time of your last bowel movement.</li>
             <li>Click <strong>Log</strong> to save the entry.</li>
-            <li>View your history and the interval since your previous record in the table below.</li>
+            <li>View your history and the interval since your previous record on the homepage.</li>
         </ol>
         <p>You can clear all records at any time using the <strong>Clear All Records</strong> button.</p>
 
@@ -57,5 +79,6 @@
         <a href="/terms/">Terms</a> |
         <a href="/contact/">Contact</a>
     </footer>
+    <script src="/nav.js" defer></script>
 </body>
 </html>
