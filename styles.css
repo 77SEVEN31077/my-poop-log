@@ -401,3 +401,53 @@ footer a:hover {
     font-size: 2rem;
     margin-bottom: 12px;
 }
+
+.example-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.95rem;
+}
+
+.example-table th,
+.example-table td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.example-table th {
+    background: #8d6e63;
+    color: white;
+    text-align: left;
+}
+
+.example-table tr:nth-child(even) {
+    background: #faf8f6;
+}
+
+.example-caption {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 8px;
+}
+
+.sources-section {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    font-size: 0.95rem;
+}
+
+.sources-section h3 {
+    margin-top: 0;
+    font-size: 1rem;
+}
+
+.sources-section ul {
+    padding-left: 20px;
+}
+
+.sources-section a {
+    word-break: break-word;
+}

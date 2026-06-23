@@ -11,19 +11,19 @@
       gtag('js', new Date());
       gtag('config', 'G-YXR0PLJDEY');
     </script>
-    <meta name="description" content="About Poop Log Tracker — a free, private browser-based bowel movement log tool.">
+    <meta name="description" content="About Poop Log Tracker — an independent, privacy-first browser tool for logging bowel movement times with no account required.">
     <link rel="canonical" href="https://mypooplog.com/about/">
     <link rel="icon" href="/favicon.png" type="image/png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Poop Log Tracker">
     <meta property="og:title" content="About — Poop Log Tracker">
-    <meta property="og:description" content="About Poop Log Tracker — a free, private browser-based bowel movement log tool.">
+    <meta property="og:description" content="About Poop Log Tracker — an independent, privacy-first browser tool for logging bowel movement times with no account required.">
     <meta property="og:url" content="https://mypooplog.com/about/">
     <meta property="og:image" content="https://mypooplog.com/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="About — Poop Log Tracker">
-    <meta name="twitter:description" content="About Poop Log Tracker — a free, private browser-based bowel movement log tool.">
+    <meta name="twitter:description" content="About Poop Log Tracker — an independent, privacy-first browser tool for logging bowel movement times with no account required.">
     <meta name="twitter:image" content="https://mypooplog.com/og-image.png">
     <title>About — Poop Log Tracker</title>
     <link rel="stylesheet" href="/styles.css">
@@ -54,28 +54,59 @@
 
     <div class="page-content">
         <h1>About Poop Log Tracker</h1>
+        <p class="article-meta">Independent · Privacy-first · General information only</p>
 
-        <p>Poop Log Tracker is a free, lightweight web tool that helps you keep track of when you last had a bowel movement and how much time passes between each one.</p>
+        <p>Poop Log Tracker is a free, lightweight web tool that helps you record when bowel movements occur and review the time between entries. It runs entirely in your browser, stores log data locally on your device, and does not require an account.</p>
 
-        <h2>Why use it?</h2>
-        <p>Regular bowel habits are a useful indicator of digestive health. Whether you're monitoring changes for personal awareness or simply curious about your patterns, this tool makes it easy to log times and see intervals at a glance — no spreadsheet required.</p>
+        <h2>Why the tool exists</h2>
+        <p>Bowel habits are easy to misremember. When a clinician asks how long symptoms have lasted, many people guess from memory and lose useful detail. A simple timestamp log creates a factual timeline — when events happened and how spacing changed over days or weeks.</p>
+        <p>That timeline supports personal awareness during diet changes, travel, illness recovery, medication adjustments, hydration shifts, or stressful periods. It is not meant to replace medical judgment, but it can make self-observation and doctor conversations more concrete.</p>
+        <p>We built this site because existing options often add friction: sign-up walls, cloud sync, subscription prompts, or interfaces designed for broad health tracking rather than one focused task. Poop Log Tracker does one thing clearly.</p>
 
-        <h2>Completely private</h2>
-        <p>Your records are stored <strong>only in your browser's local storage</strong>. Nothing is uploaded to a server, and no account is needed. Your data stays on your device.</p>
+        <h2>Design principles</h2>
+        <ul>
+            <li><strong>Minimal by default.</strong> Open the page, log a time, read your table. No onboarding funnel.</li>
+            <li><strong>Local-first data.</strong> Your log entries stay in browser storage unless you choose to back them up manually.</li>
+            <li><strong>No account gate.</strong> The tool works immediately without email, password, or profile setup.</li>
+            <li><strong>Plain language.</strong> Explanatory content on the homepage and in Learn guides is written for everyday readers.</li>
+            <li><strong>Honest scope.</strong> We describe what the tool can and cannot do, including medical limitations.</li>
+            <li><strong>Readable on mobile.</strong> Layout and navigation work on phones as well as desktops.</li>
+        </ul>
+
+        <h2>Privacy-first approach</h2>
+        <p>Bowel movement records are stored in your browser's <strong>localStorage</strong>. The website operator does not receive those entries on a server and does not operate a cloud database for your log.</p>
+        <p>Because storage is local, your history appears only on the device and browser where you created it. Clearing browser data, switching browsers, or changing devices can remove or separate your records. You can read more in our <a href="/guide/local-storage-privacy/">local storage guide</a> and <a href="/privacy/">Privacy Policy</a>.</p>
+        <p>The site may use Google Analytics for basic page-view measurement and Google AdSense for advertising. Analytics is configured for standard page views only — not for sending your log entries or health input. See the Privacy Policy for details.</p>
 
         <h2>How it works</h2>
         <ol>
-            <li>Select the time of your last bowel movement.</li>
+            <li>Select the hour and minute of your last bowel movement on the <a href="/">homepage</a>.</li>
             <li>Click <strong>Log</strong> to save the entry.</li>
             <li>View your history and the interval since your previous record on the homepage.</li>
         </ol>
-        <p>You can clear all records at any time using the <strong>Clear All Records</strong> button.</p>
+        <p>You can clear all records at any time using <strong>Clear All Records</strong>. This version does not include a built-in export feature; manual screenshots or copies are the simplest backup method before clearing browser data.</p>
 
-        <h2>Important note</h2>
-        <p>This is a personal tracking tool, not a medical device or diagnostic service. If you have concerns about your digestive health, please consult a qualified healthcare professional. See our <a href="/terms/#disclaimer">Medical Disclaimer</a> for more details.</p>
+        <h2>What this tool does not do</h2>
+        <p>Poop Log Tracker is for personal awareness only. It is <strong>not</strong> a medical device, diagnostic system, treatment planner, or emergency service. It does not analyze stool appearance, pain, blood, weight, nutrition, or hydration unless you track those details elsewhere.</p>
+        <p>It does not send alerts, predict disease, recommend medication, or connect you automatically to clinicians. Any medical decisions require evaluation by a qualified healthcare professional. See our <a href="/terms/#disclaimer">Medical Disclaimer</a>.</p>
 
-        <h2>Operator</h2>
-        <p>Poop Log Tracker is independently maintained as a lightweight privacy-first tracking tool. Explore <a href="/guide/">Learn guides</a> for detailed articles, read the <a href="/faq/">FAQ</a>, or visit our <a href="/contact/">Contact page</a> for feedback.</p>
+        <h2>Who operates this site</h2>
+        <p>Poop Log Tracker is independently maintained as a lightweight privacy-first tracking tool. The site is published at <a href="https://mypooplog.com">mypooplog.com</a> and hosted as a static web project.</p>
+        <p>For questions, feedback, or legal inquiries, visit the <a href="/contact/">Contact page</a>. We welcome constructive feedback about usability, privacy clarity, and content quality.</p>
+
+        <h2>Explore the site</h2>
+        <ul>
+            <li><a href="/">Home — use the logging tool</a></li>
+            <li><a href="/faq/">FAQ — common questions</a></li>
+            <li><a href="/guide/">Learn — in-depth guides</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/terms/">Terms of Use</a></li>
+            <li><a href="/contact/">Contact</a></li>
+        </ul>
+
+        <div class="medical-note">
+            <strong>Medical disclaimer:</strong> This page provides general information about the website. It does not offer personal medical advice. Consult a qualified healthcare provider for health concerns.
+        </div>
     </div>
 
     <footer>

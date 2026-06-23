@@ -64,6 +64,11 @@ Users should consult a qualified healthcare professional if they notice blood in
 - Tracking Constipation Patterns
 - Why This Poop Log Stores Data Locally
 - When to Talk to a Doctor About Bowel Changes
+- Using a Poop Tracker Without an Account
+- Keeping a Travel Bowel Habit Log
+- How to Share a Bowel Log With a Doctor
+- Fiber, Hydration, and Bowel Rhythm
+- Private Health Tracking: Why Local-First Matters
 
 ## Tech stack
 
