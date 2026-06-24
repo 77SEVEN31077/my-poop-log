@@ -31,7 +31,10 @@
 </head>
 <body>
     <header class="site-header">
-        <a class="site-brand" href="/">Poop Log Tracker</a>
+        <a class="site-brand" href="/" aria-label="Poop Log Tracker home">
+            <img class="site-logo" src="/logo.png" alt="" aria-hidden="true">
+            <span>Poop Log Tracker</span>
+        </a>
     </header>
 
     <main class="page-wrap">
@@ -45,24 +48,31 @@
             <label class="tool-label" for="record-time">Last bowel movement time</label>
             <input type="datetime-local" id="record-time" class="tool-datetime">
             <button type="button" class="btn-primary" onclick="addRecord()">Log Poop</button>
-            <button type="button" class="btn-secondary" onclick="clearAll()">Clear All Records</button>
+            <button type="button" class="btn-secondary clear-button" onclick="clearAll()">Clear All Records</button>
 
-            <div class="tool-summary" aria-live="polite">
-                <div class="tool-summary-item">
-                    <span class="tool-summary-label">Last logged</span>
-                    <span class="tool-summary-value" id="summary-last">—</span>
+            <p class="tool-microcopy">Your browser remembers. We don't.</p>
+
+            <section class="poop-dashboard" aria-label="Poop log summary">
+                <div class="dashboard-item">
+                    <span class="dashboard-label">Last poop</span>
+                    <strong class="dashboard-value" id="lastPoopValue">—</strong>
                 </div>
-                <div class="tool-summary-item">
-                    <span class="tool-summary-label">Time since last</span>
-                    <span class="tool-summary-value" id="summary-since">—</span>
+                <div class="dashboard-item">
+                    <span class="dashboard-label">Time since last</span>
+                    <strong class="dashboard-value" id="timeSinceLastValue">—</strong>
                 </div>
-                <div class="tool-summary-item">
-                    <span class="tool-summary-label">Records</span>
-                    <span class="tool-summary-value" id="summary-count">0</span>
+                <div class="dashboard-item">
+                    <span class="dashboard-label">Total records</span>
+                    <strong class="dashboard-value" id="totalRecordsValue">0</strong>
                 </div>
+            </section>
+
+            <div class="empty-state" id="emptyState">
+                <strong>No records yet.</strong>
+                <span>Log your first entry to see the interval.</span>
             </div>
 
-            <div class="record-table-wrap">
+            <div class="record-table-wrap" id="recordTableWrap" hidden>
                 <table class="record-table" id="recordTable">
                     <thead>
                         <tr>
@@ -112,6 +122,10 @@
         </div>
     </main>
 
+    <section class="home-screen-tip" aria-label="Quick access tip">
+        Tip: Add this page to your phone home screen for quick private logging.
+    </section>
+
     <footer class="site-footer">
         <div class="footer-copy">© 2025 77SEVEN</div>
         <nav class="footer-links" aria-label="Footer navigation">
@@ -158,41 +172,72 @@
             });
         }
 
-        function formatShortDateTime(date) {
-            return date.toLocaleString('en-US', {
+        function getMostRecentRecord(records) {
+            if (!records || records.length === 0) return null;
+
+            return records
+                .slice()
+                .sort(function (a, b) {
+                    return new Date(b.time) - new Date(a.time);
+                })[0];
+        }
+
+        function formatDateTimeForDisplay(value) {
+            if (!value) return '—';
+            const date = new Date(value);
+            if (Number.isNaN(date.getTime())) return '—';
+
+            return date.toLocaleString(undefined, {
                 month: 'short',
                 day: 'numeric',
                 hour: 'numeric',
-                minute: '2-digit',
-                hour12: true
+                minute: '2-digit'
             });
         }
 
-        function updateSummary(records) {
-            const lastEl = document.getElementById('summary-last');
-            const sinceEl = document.getElementById('summary-since');
-            const countEl = document.getElementById('summary-count');
-            countEl.textContent = records.length;
+        function formatElapsedTime(value) {
+            if (!value) return '—';
+            const date = new Date(value);
+            if (Number.isNaN(date.getTime())) return '—';
 
-            if (records.length === 0) {
-                lastEl.textContent = '—';
-                sinceEl.textContent = '—';
-                return;
-            }
+            const diffMs = Date.now() - date.getTime();
+            if (diffMs < 0) return '—';
 
-            const lastDate = new Date(records[0].time);
-            lastEl.textContent = formatShortDateTime(lastDate);
-            sinceEl.textContent = formatInterval(Date.now() - lastDate.getTime());
+            const totalMinutes = Math.floor(diffMs / 60000);
+            const days = Math.floor(totalMinutes / 1440);
+            const hours = Math.floor((totalMinutes % 1440) / 60);
+            const minutes = totalMinutes % 60;
+
+            if (days > 0) return days + 'd ' + hours + 'h';
+            if (hours > 0) return hours + 'h ' + minutes + 'm';
+            return minutes + 'm';
+        }
+
+        function updateDashboard(records) {
+            const lastPoopValue = document.getElementById('lastPoopValue');
+            const timeSinceLastValue = document.getElementById('timeSinceLastValue');
+            const totalRecordsValue = document.getElementById('totalRecordsValue');
+            const emptyState = document.getElementById('emptyState');
+            const recordTableWrap = document.getElementById('recordTableWrap');
+
+            const count = records ? records.length : 0;
+            const mostRecent = getMostRecentRecord(records || []);
+            const rawValue = mostRecent ? mostRecent.time : null;
+
+            if (lastPoopValue) lastPoopValue.textContent = rawValue ? formatDateTimeForDisplay(rawValue) : '—';
+            if (timeSinceLastValue) timeSinceLastValue.textContent = rawValue ? formatElapsedTime(rawValue) : '—';
+            if (totalRecordsValue) totalRecordsValue.textContent = String(count);
+            if (emptyState) emptyState.hidden = count > 0;
+            if (recordTableWrap) recordTableWrap.hidden = count === 0;
         }
 
         function loadRecords() {
             const records = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
             const tbody = document.getElementById('tableBody');
             tbody.innerHTML = '';
-            updateSummary(records);
+            updateDashboard(records);
 
             if (records.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="3" class="no-data">No records yet.</td></tr>';
                 return;
             }
 
@@ -234,16 +279,17 @@
         }
 
         function clearAll() {
-            if (confirm('Are you sure you want to delete all records?')) {
-                localStorage.removeItem(STORAGE_KEY);
-                loadRecords();
-            }
+            const confirmed = window.confirm('Are you sure? This only clears records in this browser.');
+            if (!confirmed) return;
+
+            localStorage.removeItem(STORAGE_KEY);
+            loadRecords();
         }
 
         window.onload = loadRecords;
         setInterval(function () {
             const records = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-            if (records.length > 0) updateSummary(records);
+            if (records.length > 0) updateDashboard(records);
         }, 60000);
     </script>
 </body>
