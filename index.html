@@ -120,11 +120,11 @@
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
         </div>
-    </main>
 
-    <section class="home-screen-tip" aria-label="Quick access tip">
-        Tip: Add this page to your phone home screen for quick private logging.
-    </section>
+        <section class="home-screen-tip" aria-label="Quick access tip">
+            Tip: Add this page to your phone home screen for quick private logging.
+        </section>
+    </main>
 
     <footer class="site-footer">
         <div class="footer-copy">© 2025 77SEVEN</div>
@@ -161,11 +161,16 @@
             return parts.join(' ');
         }
 
-        function formatDateTime(date) {
+        function formatDateTimeForDisplay(value) {
+            if (!value) return '—';
+
+            const date = value instanceof Date ? value : new Date(value);
+            if (Number.isNaN(date.getTime())) return '—';
+
             return date.toLocaleString('en-US', {
-                year: 'numeric',
                 month: 'short',
                 day: 'numeric',
+                year: 'numeric',
                 hour: 'numeric',
                 minute: '2-digit',
                 hour12: true
@@ -180,19 +185,6 @@
                 .sort(function (a, b) {
                     return new Date(b.time) - new Date(a.time);
                 })[0];
-        }
-
-        function formatDateTimeForDisplay(value) {
-            if (!value) return '—';
-            const date = new Date(value);
-            if (Number.isNaN(date.getTime())) return '—';
-
-            return date.toLocaleString(undefined, {
-                month: 'short',
-                day: 'numeric',
-                hour: 'numeric',
-                minute: '2-digit'
-            });
         }
 
         function formatElapsedTime(value) {
@@ -250,7 +242,7 @@
                 tr.appendChild(tdIndex);
 
                 const tdTime = document.createElement('td');
-                tdTime.textContent = formatDateTime(date);
+                tdTime.textContent = formatDateTimeForDisplay(record.time);
                 tr.appendChild(tdTime);
 
                 const tdInterval = document.createElement('td');
