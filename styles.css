@@ -80,8 +80,8 @@ a:hover {
 }
 
 .site-logo {
-    width: clamp(3rem, 10vw, 3.75rem);
-    height: clamp(3rem, 10vw, 3.75rem);
+    width: clamp(4.5rem, 14vw, 5.5rem);
+    height: clamp(4.5rem, 14vw, 5.5rem);
     object-fit: contain;
     flex: 0 0 auto;
     display: block;
@@ -633,8 +633,8 @@ input[type="datetime-local"] {
     }
 
     .site-logo {
-        width: 3.25rem;
-        height: 3.25rem;
+        width: 4.875rem;
+        height: 4.875rem;
     }
 
     .home-screen-tip {
