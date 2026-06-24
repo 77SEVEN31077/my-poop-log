@@ -16,6 +16,12 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
@@ -39,6 +45,7 @@ a:hover {
     max-width: 680px;
     margin: 0 auto;
     padding: 24px 20px 48px;
+    box-sizing: border-box;
 }
 
 .page-wrap--narrow {
@@ -52,11 +59,11 @@ a:hover {
 }
 
 .site-brand {
-    font-size: 1.05rem;
-    font-weight: 600;
+    font-size: clamp(1.25rem, 4vw, 1.45rem);
+    font-weight: 700;
+    line-height: 1.2;
     color: var(--color-text);
     text-decoration: none;
-    letter-spacing: -0.01em;
 }
 
 .site-brand:hover {
@@ -97,6 +104,17 @@ a:hover {
     padding: 28px 24px;
     max-width: 600px;
     margin: 0 auto 32px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.tool-form,
+.tool-controls,
+.input-group {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
 }
 
 .tool-label {
@@ -108,15 +126,26 @@ a:hover {
 }
 
 .tool-datetime {
+    display: block;
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    appearance: none;
+    font-size: 16px;
     padding: 14px 16px;
-    font-size: 1rem;
     font-family: inherit;
     border: 1px solid var(--color-border);
     border-radius: 12px;
     background: var(--color-bg);
     color: var(--color-text);
     margin-bottom: 16px;
+}
+
+input[type="datetime-local"] {
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .tool-datetime:focus {
@@ -441,25 +470,38 @@ a:hover {
 
 /* Footer */
 .site-footer {
+    margin-top: clamp(2.5rem, 8vw, 4rem);
+    padding: 1.5rem 1rem 2rem;
     text-align: center;
-    padding: 32px 20px 40px;
-    font-size: 0.82rem;
     color: var(--color-muted);
-    line-height: 1.8;
+    font-size: 0.95rem;
+    line-height: 1.7;
 }
 
-.site-footer a {
+.footer-copy {
+    margin-bottom: 0.35rem;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.35rem 0.65rem;
+}
+
+.footer-links a {
     color: var(--color-muted);
     text-decoration: none;
 }
 
-.site-footer a:hover {
+.footer-links a:hover,
+.footer-links a:focus {
     color: var(--color-primary);
     text-decoration: underline;
 }
 
-.footer-sep {
-    margin: 0 6px;
+.footer-links span {
     color: var(--color-border);
 }
 
@@ -473,18 +515,29 @@ a:hover {
     }
 }
 
-@media (max-width: 479px) {
+@media (max-width: 480px) {
     .page-wrap {
         padding: 16px 16px 40px;
     }
 
     .tool-card {
         padding: 22px 18px;
+        overflow: hidden;
     }
 
     .record-table th,
     .record-table td {
         padding: 10px 8px;
         font-size: 0.82rem;
+    }
+
+    .site-footer {
+        margin-top: 2.25rem;
+        padding: 1.25rem 1rem 1.75rem;
+        font-size: 0.92rem;
+    }
+
+    .footer-links {
+        gap: 0.25rem 0.55rem;
     }
 }
