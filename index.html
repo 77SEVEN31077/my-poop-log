@@ -129,14 +129,6 @@
             <p>If you notice blood in stool, severe abdominal pain, persistent constipation or diarrhea, unexplained weight loss, or a sudden change in bowel habits, talk to a qualified healthcare professional.</p>
         </section>
 
-        <div class="ad-container">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-2488269635860224"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-        </div>
-
         <section class="home-screen-tip" aria-label="Quick access tip">
             Tip: Add this page to your phone home screen for quick private logging.
         </section>
@@ -160,9 +152,15 @@
     </footer>
 
     <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-
         const STORAGE_KEY = 'poopRecords';
+
+        function sortRecords(records) {
+            return (records || [])
+                .slice()
+                .sort(function (a, b) {
+                    return new Date(b.time) - new Date(a.time);
+                });
+        }
 
         function formatInterval(diffMs) {
             if (diffMs < 0) diffMs = 0;
@@ -194,13 +192,8 @@
         }
 
         function getMostRecentRecord(records) {
-            if (!records || records.length === 0) return null;
-
-            return records
-                .slice()
-                .sort(function (a, b) {
-                    return new Date(b.time) - new Date(a.time);
-                })[0];
+            const sorted = sortRecords(records);
+            return sorted.length > 0 ? sorted[0] : null;
         }
 
         function formatElapsedTime(value) {
@@ -240,7 +233,7 @@
         }
 
         function loadRecords() {
-            const records = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+            const records = sortRecords(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'));
             const tbody = document.getElementById('tableBody');
             tbody.innerHTML = '';
             updateDashboard(records);
@@ -281,8 +274,9 @@
             }
             const timeStr = new Date(input.value).toISOString();
             const records = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-            records.unshift({ time: timeStr });
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
+            records.push({ time: timeStr });
+            const sortedRecords = sortRecords(records);
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(sortedRecords));
             loadRecords();
         }
 
@@ -296,7 +290,7 @@
 
         window.onload = loadRecords;
         setInterval(function () {
-            const records = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+            const records = sortRecords(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'));
             if (records.length > 0) updateDashboard(records);
         }, 60000);
     </script>
